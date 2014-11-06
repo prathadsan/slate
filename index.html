@@ -83,23 +83,62 @@
 <h2 id='notification-description'>Notification Description</h2>
 <p>The notification contains the following information.</p>
 <h3 id='notification'>Notification</h3>
-<p>| Data  | Type  |  Description  | Required?  |
+<p>| Data  | Type  |  Description  | Required? |
 | &mdash;&mdash;&mdash;&mdash; | &mdash;&mdash;&mdash;&mdash;&mdash; |
 |  notification_id     | String  | Unique identifier of the notification.  | Required  |
 |  event   | Container  | See Event below. | Required  |
 |  customer      | Container  | See Customer below.  | Required  |
 |  subscription    | Container  | See Subscription below. | Required  |</p>
 <h3 id='event'>Event</h3>
-<p>| Data  | Type  |  Description  | Required?  |<br>
-| &mdash;&mdash;&mdash;&mdash; |&mdash;&mdash;&mdash;&mdash;&mdash; | 
-|  type    | String | Type of event. Possible values are <code class="prettyprint">subscription_created</code>, <code class="prettyprint">subscription_updated</code>, or <code class="prettyprint">subscription_reminder</code>.  | Required
-|  reason  | String |  Reason for the event. Possible values are <code class="prettyprint">canceled</code>, <code class="prettyprint">manual_renewal_confirmed</code>, <code class="prettyprint">manual_renewal_required</code>, <code class="prettyprint">renewal_type_changed</code>,  <code class="prettyprint">renewed</code>, or <code class="prettyprint">upgraded</code>.  | Required </p>
+<table><thead>
+<tr>
+<th>Data</th>
+<th>Type</th>
+<th>Description</th>
+<th>Required?</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>type</td>
+<td>String</td>
+<td>Type of event. Possible values are <code class="prettyprint">subscription_created</code>, <code class="prettyprint">subscription_updated</code>, or <code class="prettyprint">subscription_reminder</code>.</td>
+<td>Required</td>
+</tr>
+<tr>
+<td>reason</td>
+<td>String</td>
+<td>Reason for the event. Possible values are <code class="prettyprint">canceled</code>, <code class="prettyprint">manual_renewal_confirmed</code>, <code class="prettyprint">manual_renewal_required</code>, <code class="prettyprint">renewal_type_changed</code>,  <code class="prettyprint">renewed</code>, or <code class="prettyprint">upgraded</code>.</td>
+<td>Required</td>
+</tr>
+</tbody></table>
 <h3 id='customer'>Customer</h3>
-<p>| Data  | Type | Description | Required? |<br>
-| &mdash;&mdash;&mdash;- | &mdash;- |&mdash;&mdash;&mdash;&mdash; |
-| <code class="prettyprint">customer_id</code>  | String | Unique identifier of the customer.  | Required
-| <code class="prettyprint">client_customer_id</code>  | String | Your internal identifier of the customer.  | Optional
-| <code class="prettyprint">default_contact</code>  | Container |  See Default Contact below. | Required</p>
+<table><thead>
+<tr>
+<th>Data</th>
+<th>Type</th>
+<th>Description</th>
+<th>Required?</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code class="prettyprint">customer_id</code></td>
+<td>String</td>
+<td>Unique identifier of the customer.</td>
+<td>Required</td>
+</tr>
+<tr>
+<td><code class="prettyprint">client_customer_id</code></td>
+<td>String</td>
+<td>Your internal identifier of the customer.</td>
+<td>Optional</td>
+</tr>
+<tr>
+<td><code class="prettyprint">default_contact</code></td>
+<td>Container</td>
+<td>See Default Contact below.</td>
+<td>Required</td>
+</tr>
+</tbody></table>
 <h4 id='default-contact'>Default Contact</h4>
 <p>| Data  | Type | Description | Required? |<br>
 | &mdash;&mdash;&mdash;- | &mdash;- |&mdash;&mdash;&mdash;&mdash; |
