@@ -84,16 +84,16 @@
 <p>The notification contains the following information.</p>
 <h3 id='notification'>Notification</h3>
 <p>| Data  | Type  |  Description  | Required?  |<br>
-| &mdash;&mdash;&mdash;&mdash; |&mdash;&mdash;&mdash;&mdash;&mdash; | 
-|  <code class="prettyprint">notification_id</code>     | String |  Unique identifier of the notification. | Required
-|  <code class="prettyprint">event</code>   | Container |  See Event below. | Required 
-|  <code class="prettyprint">customer</code>      | Container | See Customer below. |  Required
-|  <code class="prettyprint">subscription</code>    | Container | See Subscription below. | Required</p>
+| &mdash;&mdash;&mdash;&mdash; |&mdash;&mdash;&mdash;&mdash;&mdash; |
+|  notification_id     | String |  Unique identifier of the notification. | Required
+|  event   | Container |  See Event below. | Required 
+|  customer      | Container | See Customer below. |  Required
+|  subscription    | Container | See Subscription below. | Required</p>
 <h3 id='event'>Event</h3>
 <p>| Data  | Type  |  Description  | Required?  |<br>
 | &mdash;&mdash;&mdash;&mdash; |&mdash;&mdash;&mdash;&mdash;&mdash; | 
-|  <code class="prettyprint">type</code>     | String | Type of event. Possible values are <code class="prettyprint">subscription_created</code>, <code class="prettyprint">subscription_updated</code>, or <code class="prettyprint">subscription_reminder</code>.  | Required
-|  <code class="prettyprint">reason</code>   | String |  Reason for the event. Possible values are <code class="prettyprint">canceled</code>, <code class="prettyprint">manual_renewal_confirmed</code>, <code class="prettyprint">manual_renewal_required</code>, <code class="prettyprint">renewal_type_changed</code>,  <code class="prettyprint">renewed</code>, or <code class="prettyprint">upgraded</code>.  | Required </p>
+|  type    | String | Type of event. Possible values are <code class="prettyprint">subscription_created</code>, <code class="prettyprint">subscription_updated</code>, or <code class="prettyprint">subscription_reminder</code>.  | Required
+|  reason  | String |  Reason for the event. Possible values are <code class="prettyprint">canceled</code>, <code class="prettyprint">manual_renewal_confirmed</code>, <code class="prettyprint">manual_renewal_required</code>, <code class="prettyprint">renewal_type_changed</code>,  <code class="prettyprint">renewed</code>, or <code class="prettyprint">upgraded</code>.  | Required </p>
 <h3 id='customer'>Customer</h3>
 <p>| Data  | Type | Description | Required? |<br>
 | &mdash;&mdash;&mdash;- | &mdash;- |&mdash;&mdash;&mdash;&mdash; |
