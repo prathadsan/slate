@@ -146,7 +146,7 @@ The notification contains the following information.
      {
         "notification_id": "1251A1",
         "event": {
-            "type": "subscription_created",
+            "type": "subscription_created"
         },
          "customer": {
 	         "customer_id": "1251A1",
