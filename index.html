@@ -83,12 +83,39 @@
 <h2 id='notification-description'>Notification Description</h2>
 <p>The notification contains the following information.</p>
 <h3 id='notification'>Notification</h3>
-<p>| Data  | Type  |  Description  | Required? |
-| &mdash;&mdash;&mdash;&mdash; | &mdash;&mdash;&mdash;&mdash;&mdash; |
-|  notification_id     | String  | Unique identifier of the notification.  | Required  |
-|  event   | Container  | See Event below. | Required  |
-|  customer      | Container  | See Customer below.  | Required  |
-|  subscription    | Container  | See Subscription below. | Required  |</p>
+<table><thead>
+<tr>
+<th>Data</th>
+<th>Type</th>
+<th>Description</th>
+<th>Required?</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>notification_id</td>
+<td>String</td>
+<td>Unique identifier of the notification.</td>
+<td>Required</td>
+</tr>
+<tr>
+<td>event</td>
+<td>Container</td>
+<td>See Event below.</td>
+<td>Required</td>
+</tr>
+<tr>
+<td>customer</td>
+<td>Container</td>
+<td>See Customer below.</td>
+<td>Required</td>
+</tr>
+<tr>
+<td>subscription</td>
+<td>Container</td>
+<td>See Subscription below.</td>
+<td>Required</td>
+</tr>
+</tbody></table>
 <h3 id='event'>Event</h3>
 <table><thead>
 <tr>
@@ -140,68 +167,343 @@
 </tr>
 </tbody></table>
 <h4 id='default-contact'>Default Contact</h4>
-<p>| Data  | Type | Description | Required? |<br>
-| &mdash;&mdash;&mdash;- | &mdash;- |&mdash;&mdash;&mdash;&mdash; |
-| <code class="prettyprint">locale</code>  | String | Two letter ISO 639-1 code for the customer language. Format: <code class="prettyprint">iso6391</code>  | Required
-| <code class="prettyprint">title</code>  | String | Title of the customer.  | Optional
-| <code class="prettyprint">first_name</code>  | String |  First name of the customer. | Optional
-| <code class="prettyprint">last_name</code>  | String | Last name of the customer.  | Required
-| <code class="prettyprint">gender</code>  | String | Gender of the customer. Possible values are <code class="prettyprint">female</code> or <code class="prettyprint">male</code>.  | Optional
-| <code class="prettyprint">company</code>  | String | Company of the customer.  | Optional
-| <code class="prettyprint">street</code>  | String |  Street address of the customer. | Optional
-| <code class="prettyprint">zip_code</code>  | String | Zip code of the customer.  | Optional
-| <code class="prettyprint">city</code>  | String | City of the customer.  | Optional
-| <code class="prettyprint">state_iso_code</code>  | String | ISO 3166-2 code for the state of the customer. Format: <code class="prettyprint">iso31662</code>  | Optional
-| <code class="prettyprint">country_iso_code</code>  | String | ISO 3166-2 code for the country of the customer. Format: <code class="prettyprint">iso31662</code>   | Required
-| <code class="prettyprint">phone</code>  | String | Phone number of the customer.  | Optional
-| <code class="prettyprint">mobile</code>  | String | Mobile number of the customer.  | Optional
-| <code class="prettyprint">fax</code>  | String | Fax number of the customer.  | Optional
-| <code class="prettyprint">email</code>  | String | Email address of the customer.  | Required
-| <code class="prettyprint">vat_id</code>  | String | VAT ID of the customer.  | Optional</p>
+<table><thead>
+<tr>
+<th>Data</th>
+<th>Type</th>
+<th>Description</th>
+<th>Required?</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code class="prettyprint">locale</code></td>
+<td>String</td>
+<td>Two letter ISO 639-1 code for the customer language. Format: <code class="prettyprint">iso6391</code></td>
+<td>Required</td>
+</tr>
+<tr>
+<td><code class="prettyprint">title</code></td>
+<td>String</td>
+<td>Title of the customer.</td>
+<td>Optional</td>
+</tr>
+<tr>
+<td><code class="prettyprint">first_name</code></td>
+<td>String</td>
+<td>First name of the customer.</td>
+<td>Optional</td>
+</tr>
+<tr>
+<td><code class="prettyprint">last_name</code></td>
+<td>String</td>
+<td>Last name of the customer.</td>
+<td>Required</td>
+</tr>
+<tr>
+<td><code class="prettyprint">gender</code></td>
+<td>String</td>
+<td>Gender of the customer. Possible values are <code class="prettyprint">female</code> or <code class="prettyprint">male</code>.</td>
+<td>Optional</td>
+</tr>
+<tr>
+<td><code class="prettyprint">company</code></td>
+<td>String</td>
+<td>Company of the customer.</td>
+<td>Optional</td>
+</tr>
+<tr>
+<td><code class="prettyprint">street</code></td>
+<td>String</td>
+<td>Street address of the customer.</td>
+<td>Optional</td>
+</tr>
+<tr>
+<td><code class="prettyprint">zip_code</code></td>
+<td>String</td>
+<td>Zip code of the customer.</td>
+<td>Optional</td>
+</tr>
+<tr>
+<td><code class="prettyprint">city</code></td>
+<td>String</td>
+<td>City of the customer.</td>
+<td>Optional</td>
+</tr>
+<tr>
+<td><code class="prettyprint">state_iso_code</code></td>
+<td>String</td>
+<td>ISO 3166-2 code for the state of the customer. Format: <code class="prettyprint">iso31662</code></td>
+<td>Optional</td>
+</tr>
+<tr>
+<td><code class="prettyprint">country_iso_code</code></td>
+<td>String</td>
+<td>ISO 3166-2 code for the country of the customer. Format: <code class="prettyprint">iso31662</code></td>
+<td>Required</td>
+</tr>
+<tr>
+<td><code class="prettyprint">phone</code></td>
+<td>String</td>
+<td>Phone number of the customer.</td>
+<td>Optional</td>
+</tr>
+<tr>
+<td><code class="prettyprint">mobile</code></td>
+<td>String</td>
+<td>Mobile number of the customer.</td>
+<td>Optional</td>
+</tr>
+<tr>
+<td><code class="prettyprint">fax</code></td>
+<td>String</td>
+<td>Fax number of the customer.</td>
+<td>Optional</td>
+</tr>
+<tr>
+<td><code class="prettyprint">email</code></td>
+<td>String</td>
+<td>Email address of the customer.</td>
+<td>Required</td>
+</tr>
+<tr>
+<td><code class="prettyprint">vat_id</code></td>
+<td>String</td>
+<td>VAT ID of the customer.</td>
+<td>Optional</td>
+</tr>
+</tbody></table>
 <h3 id='subscription'>Subscription</h3>
-<p>| Data  | Type | Description | Required? |<br>
-| &mdash;&mdash;&mdash;- | &mdash;- |&mdash;&mdash;&mdash;&mdash; |
-| <code class="prettyprint">subscription_id</code>  | String | Unique identifier of the subscription.  | Required
-| <code class="prettyprint">client_subscription_id</code>  | String | Your internal identifier of the subscription. | Optional
-| <code class="prettyprint">renewal_type</code>  | String | If <code class="prettyprint">auto</code>, subscription renews automatically. If <code class="prettyprint">manual</code>, the customer must initiate the renewal. If <code class="prettyprint">cancel</code>, the subscription will not continue after the renewal date.  | Required
-| <code class="prettyprint">status</code>  | String | Status of the subscription. Possible values are: <code class="prettyprint">active</code>, <code class="prettyprint">canceled</code>, <code class="prettyprint">expired</code>, <code class="prettyprint">suspended</code>, or <code class="prettyprint">deleted</code>.  | Required
-| <code class="prettyprint">started_at</code>  | Date-Time |  ISO 8601 code for the date and time the subscription became effective. Format: <code class="prettyprint">iso8601</code> | Required
-| <code class="prettyprint">next_billing_at</code>  | Date-Time |  ISO 8601 code for the date and time of the next billing event. Format: <code class="prettyprint">iso8601</code> | Optional
-| <code class="prettyprint">next_renewal_at</code>  | Date-Time |  ISO 8601 code for the date and time of the next renewal of the subscription contract. Format: <code class="prettyprint">iso8601</code> | Optional
-| <code class="prettyprint">canceled_at</code>  | Date-Time |  ISO 8601 code for the date and time the subscription was canceled. Format: <code class="prettyprint">iso8601</code> | Optional
-| <code class="prettyprint">ended_at</code>  | Date-Time |  ISO 8601 code for the date and time the subscription ended, if the subscription was set up as a term subscription. Format: <code class="prettyprint">iso8601</code> | Optional
-| <code class="prettyprint">currency_iso_code</code>  | String | Alpha 2 ISO 4217 code for the currency of the subscription. Format: <code class="prettyprint">iso4217</code> | Required
-| <code class="prettyprint">plans</code>  | Container | Includes one or more plans. See Plan below.  | Required
-| <code class="prettyprint">payments</code>  | Container | Includes one or more payment logs. See Payment below. | Required</p>
+<table><thead>
+<tr>
+<th>Data</th>
+<th>Type</th>
+<th>Description</th>
+<th>Required?</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code class="prettyprint">subscription_id</code></td>
+<td>String</td>
+<td>Unique identifier of the subscription.</td>
+<td>Required</td>
+</tr>
+<tr>
+<td><code class="prettyprint">client_subscription_id</code></td>
+<td>String</td>
+<td>Your internal identifier of the subscription.</td>
+<td>Optional</td>
+</tr>
+<tr>
+<td><code class="prettyprint">renewal_type</code></td>
+<td>String</td>
+<td>If <code class="prettyprint">auto</code>, subscription renews automatically. If <code class="prettyprint">manual</code>, the customer must initiate the renewal. If <code class="prettyprint">cancel</code>, the subscription will not continue after the renewal date.</td>
+<td>Required</td>
+</tr>
+<tr>
+<td><code class="prettyprint">status</code></td>
+<td>String</td>
+<td>Status of the subscription. Possible values are: <code class="prettyprint">active</code>, <code class="prettyprint">canceled</code>, <code class="prettyprint">expired</code>, <code class="prettyprint">suspended</code>, or <code class="prettyprint">deleted</code>.</td>
+<td>Required</td>
+</tr>
+<tr>
+<td><code class="prettyprint">started_at</code></td>
+<td>Date-Time</td>
+<td>ISO 8601 code for the date and time the subscription became effective. Format: <code class="prettyprint">iso8601</code></td>
+<td>Required</td>
+</tr>
+<tr>
+<td><code class="prettyprint">next_billing_at</code></td>
+<td>Date-Time</td>
+<td>ISO 8601 code for the date and time of the next billing event. Format: <code class="prettyprint">iso8601</code></td>
+<td>Optional</td>
+</tr>
+<tr>
+<td><code class="prettyprint">next_renewal_at</code></td>
+<td>Date-Time</td>
+<td>ISO 8601 code for the date and time of the next renewal of the subscription contract. Format: <code class="prettyprint">iso8601</code></td>
+<td>Optional</td>
+</tr>
+<tr>
+<td><code class="prettyprint">canceled_at</code></td>
+<td>Date-Time</td>
+<td>ISO 8601 code for the date and time the subscription was canceled. Format: <code class="prettyprint">iso8601</code></td>
+<td>Optional</td>
+</tr>
+<tr>
+<td><code class="prettyprint">ended_at</code></td>
+<td>Date-Time</td>
+<td>ISO 8601 code for the date and time the subscription ended, if the subscription was set up as a term subscription. Format: <code class="prettyprint">iso8601</code></td>
+<td>Optional</td>
+</tr>
+<tr>
+<td><code class="prettyprint">currency_iso_code</code></td>
+<td>String</td>
+<td>Alpha 2 ISO 4217 code for the currency of the subscription. Format: <code class="prettyprint">iso4217</code></td>
+<td>Required</td>
+</tr>
+<tr>
+<td><code class="prettyprint">plans</code></td>
+<td>Container</td>
+<td>Includes one or more plans. See Plan below.</td>
+<td>Required</td>
+</tr>
+<tr>
+<td><code class="prettyprint">payments</code></td>
+<td>Container</td>
+<td>Includes one or more payment logs. See Payment below.</td>
+<td>Required</td>
+</tr>
+</tbody></table>
 <h4 id='plan'>Plan</h4>
-<p>| Data  | Type | Description | Required? |
-| &mdash;&mdash;&mdash;- | &mdash;- |&mdash;&mdash;&mdash;&mdash; |
-| <code class="prettyprint">plan_id</code>  | String | Unique identifier of the plan.  | Required
-| <code class="prettyprint">client_plan_id</code>  | String | Your internal identifier of the plan.  | Optional
-| <code class="prettyprint">plan_version</code>  | Integer | Version number of the plan.  | Required
-| <code class="prettyprint">name</code>  | String | Name of the plan.  | Optional
-| <code class="prettyprint">billing_cycle_frequency</code>  | String | Period of time between recurring billing events, such as daily, monthly, quarterly, or annually. Example: <code class="prettyprint">3m4d</code>.  | Optional
-| <code class="prettyprint">charges</code>  | Container | Includes one or more charges. See Charge below.  | Optional
-| <code class="prettyprint">quantity</code>  | String | Number of times this plan is in the subscription.  | Required
-| <code class="prettyprint">coupon_code</code>  | String | Identifier of a coupon associated with a promotional discount offer. | Optional
-| <code class="prettyprint">custom_data</code>  | String | A set of key/value pairs that you can use for storing additional information about the subscription in a structured format.  | Optional</p>
+<table><thead>
+<tr>
+<th>Data</th>
+<th>Type</th>
+<th>Description</th>
+<th>Required?</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code class="prettyprint">plan_id</code></td>
+<td>String</td>
+<td>Unique identifier of the plan.</td>
+<td>Required</td>
+</tr>
+<tr>
+<td><code class="prettyprint">client_plan_id</code></td>
+<td>String</td>
+<td>Your internal identifier of the plan.</td>
+<td>Optional</td>
+</tr>
+<tr>
+<td><code class="prettyprint">plan_version</code></td>
+<td>Integer</td>
+<td>Version number of the plan.</td>
+<td>Required</td>
+</tr>
+<tr>
+<td><code class="prettyprint">name</code></td>
+<td>String</td>
+<td>Name of the plan.</td>
+<td>Optional</td>
+</tr>
+<tr>
+<td><code class="prettyprint">billing_cycle_frequency</code></td>
+<td>String</td>
+<td>Period of time between recurring billing events, such as daily, monthly, quarterly, or annually. Example: <code class="prettyprint">3m4d</code>.</td>
+<td>Optional</td>
+</tr>
+<tr>
+<td><code class="prettyprint">charges</code></td>
+<td>Container</td>
+<td>Includes one or more charges. See Charge below.</td>
+<td>Optional</td>
+</tr>
+<tr>
+<td><code class="prettyprint">quantity</code></td>
+<td>String</td>
+<td>Number of times this plan is in the subscription.</td>
+<td>Required</td>
+</tr>
+<tr>
+<td><code class="prettyprint">coupon_code</code></td>
+<td>String</td>
+<td>Identifier of a coupon associated with a promotional discount offer.</td>
+<td>Optional</td>
+</tr>
+<tr>
+<td><code class="prettyprint">custom_data</code></td>
+<td>String</td>
+<td>A set of key/value pairs that you can use for storing additional information about the subscription in a structured format.</td>
+<td>Optional</td>
+</tr>
+</tbody></table>
 <h5 id='charge'>Charge</h5>
-<p>| Data  | Type | Description | Required? |
-| &mdash;&mdash;&mdash;- | &mdash;- |&mdash;&mdash;&mdash;&mdash; |
-| <code class="prettyprint">name</code>  | String | Name of the charge.  | Optional
-| <code class="prettyprint">price</code>  | Number | Price of the charge.  | Optional</p>
+<table><thead>
+<tr>
+<th>Data</th>
+<th>Type</th>
+<th>Description</th>
+<th>Required?</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code class="prettyprint">name</code></td>
+<td>String</td>
+<td>Name of the charge.</td>
+<td>Optional</td>
+</tr>
+<tr>
+<td><code class="prettyprint">price</code></td>
+<td>Number</td>
+<td>Price of the charge.</td>
+<td>Optional</td>
+</tr>
+</tbody></table>
 <h4 id='payment'>Payment</h4>
-<p>| Data  | Type | Description | Required? |
-| &mdash;&mdash;&mdash;- | &mdash;- |&mdash;&mdash;&mdash;&mdash; |
-| <code class="prettyprint">created_at</code>  | Date-Time |  ISO 8601 code for the date and time when payment was received. Format: <code class="prettyprint">iso8601</code> | Required
-| <code class="prettyprint">payment_provider_transaction_id</code>  | String | Unique identifier of the payment transaction from the payment provider.  | Optional
-| <code class="prettyprint">payment_method</code>  | String | How the customer paid, such as by wire transfer, PayPal, MasterCard, etc. | Required
-| <code class="prettyprint">card_last_four_digits</code>  | String | Last four digits of the credit card. | Optional
-| <code class="prettyprint">card_expiration_date</code>  | String | Expiration date of the credit card. | Optional
-| <code class="prettyprint">currency_iso_code</code>  | String | Alpha 2 ISO 4217 code for the currency of the payment. Format: <code class="prettyprint">iso4217</code>  | Required
-| <code class="prettyprint">net</code>  | Number | Net amount of the payment.  | Required
-| <code class="prettyprint">tax</code>  | Number | Amount of any applicable taxes.  | Required
-| <code class="prettyprint">gross</code>  | Number | Gross amount of the payment.  | Required</p>
+<table><thead>
+<tr>
+<th>Data</th>
+<th>Type</th>
+<th>Description</th>
+<th>Required?</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code class="prettyprint">created_at</code></td>
+<td>Date-Time</td>
+<td>ISO 8601 code for the date and time when payment was received. Format: <code class="prettyprint">iso8601</code></td>
+<td>Required</td>
+</tr>
+<tr>
+<td><code class="prettyprint">payment_provider_transaction_id</code></td>
+<td>String</td>
+<td>Unique identifier of the payment transaction from the payment provider.</td>
+<td>Optional</td>
+</tr>
+<tr>
+<td><code class="prettyprint">payment_method</code></td>
+<td>String</td>
+<td>How the customer paid, such as by wire transfer, PayPal, MasterCard, etc.</td>
+<td>Required</td>
+</tr>
+<tr>
+<td><code class="prettyprint">card_last_four_digits</code></td>
+<td>String</td>
+<td>Last four digits of the credit card.</td>
+<td>Optional</td>
+</tr>
+<tr>
+<td><code class="prettyprint">card_expiration_date</code></td>
+<td>String</td>
+<td>Expiration date of the credit card.</td>
+<td>Optional</td>
+</tr>
+<tr>
+<td><code class="prettyprint">currency_iso_code</code></td>
+<td>String</td>
+<td>Alpha 2 ISO 4217 code for the currency of the payment. Format: <code class="prettyprint">iso4217</code></td>
+<td>Required</td>
+</tr>
+<tr>
+<td><code class="prettyprint">net</code></td>
+<td>Number</td>
+<td>Net amount of the payment.</td>
+<td>Required</td>
+</tr>
+<tr>
+<td><code class="prettyprint">tax</code></td>
+<td>Number</td>
+<td>Amount of any applicable taxes.</td>
+<td>Required</td>
+</tr>
+<tr>
+<td><code class="prettyprint">gross</code></td>
+<td>Number</td>
+<td>Gross amount of the payment.</td>
+<td>Required</td>
+</tr>
+</tbody></table>
 <pre><code class="highlight json"><span class="w">
      </span><span class="p">{</span><span class="w">
         </span><span class="s2">"notification_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1251A1"</span><span class="p">,</span><span class="w">
