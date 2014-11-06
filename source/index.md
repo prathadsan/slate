@@ -46,11 +46,11 @@ The notification contains the following information.
 
 
 | Data  | Type  |  Description  | Required? |
-| ------------ | --------------- |
-|  notification_id     | String  | Unique identifier of the notification.  | Required  |
-|  event   | Container  | See Event below. | Required  |
-|  customer      | Container  | See Customer below.  | Required  |
-|  subscription    | Container  | See Subscription below. | Required  |
+| ------------ | --------------- | --------------- | --------------- |
+|  notification_id     | String  | Unique identifier of the notification.  | Required  
+|  event   | Container  | See Event below. | Required  
+|  customer      | Container  | See Customer below.  | Required  
+|  subscription    | Container  | See Subscription below. | Required  
 
 
 ### Event 
@@ -71,7 +71,7 @@ The notification contains the following information.
 #### Default Contact 
 
 | Data  | Type | Description | Required? |  
-| ---------- | ---- |------------ |
+| ---------- | ---- |------------ | --------------- |
 | ``locale``  | String | Two letter ISO 639-1 code for the customer language. Format: `iso6391`  | Required
 | ``title``  | String | Title of the customer.  | Optional
 | ``first_name``  | String |  First name of the customer. | Optional
@@ -92,7 +92,7 @@ The notification contains the following information.
 ### Subscription 
 
 | Data  | Type | Description | Required? |  
-| ---------- | ---- |------------ |
+| ---------- | ---- |------------ | --------------- |
 | ``subscription_id``  | String | Unique identifier of the subscription.  | Required
 | ``client_subscription_id``  | String | Your internal identifier of the subscription. | Optional
 | ``renewal_type``  | String | If `auto`, subscription renews automatically. If `manual`, the customer must initiate the renewal. If `cancel`, the subscription will not continue after the renewal date.  | Required
@@ -109,7 +109,7 @@ The notification contains the following information.
 #### Plan 
 
 | Data  | Type | Description | Required? |
-| ---------- | ---- |------------ |
+| ---------- | ---- |------------ | --------------- |
 | ``plan_id``  | String | Unique identifier of the plan.  | Required
 | ``client_plan_id``  | String | Your internal identifier of the plan.  | Optional
 | ``plan_version``  | Integer | Version number of the plan.  | Required
@@ -123,14 +123,14 @@ The notification contains the following information.
 ##### Charge 
 
 | Data  | Type | Description | Required? |
-| ---------- | ---- |------------ |
+| ---------- | ---- |------------ | --------------- |
 | ``name``  | String | Name of the charge.  | Optional
 | ``price``  | Number | Price of the charge.  | Optional
 
 #### Payment 
 
 | Data  | Type | Description | Required? |
-| ---------- | ---- |------------ |
+| ---------- | ---- |------------ | --------------- |
 | ``created_at``  | Date-Time |  ISO 8601 code for the date and time when payment was received. Format: `iso8601` | Required
 | ``payment_provider_transaction_id``  | String | Unique identifier of the payment transaction from the payment provider.  | Optional
 | ``payment_method``  | String | How the customer paid, such as by wire transfer, PayPal, MasterCard, etc. | Required
