@@ -45,11 +45,11 @@ The notification contains the following information.
 ### Notification 
 
 | Data  | Type  |  Description  | Required?  |
-| ------------ |--------------- |
-|  notification_id     | String |  Unique identifier of the notification. | Required |
-|  event   | Container |  See Event below. | Required |
-|  customer      | Container | See Customer below. |  Required |
-|  subscription    | Container | See Subscription below. | Required |
+| ------------ | --------------- |
+|  notification_id     | String  | Unique identifier of the notification.  | Required  |
+|  event   | Container  | See Event below. | Required  |
+|  customer      | Container  | See Customer below.  | Required  |
+|  subscription    | Container  | See Subscription below. | Required  |
 
 ### Event 
 
