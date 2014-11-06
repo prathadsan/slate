@@ -44,24 +44,26 @@ The notification contains the following information.
 
 ### Notification 
 
-| Data  | Type  |  Description  | Required?  |
+
+| Data  | Type  |  Description  | Required? |
 | ------------ | --------------- |
 |  notification_id     | String  | Unique identifier of the notification.  | Required  |
 |  event   | Container  | See Event below. | Required  |
 |  customer      | Container  | See Customer below.  | Required  |
 |  subscription    | Container  | See Subscription below. | Required  |
 
+
 ### Event 
 
 | Data  | Type  |  Description  | Required?  |  
-| ------------ |--------------- | 
+| ------------ |--------------- | --------------- | --------------- | 
 |  type    | String | Type of event. Possible values are `subscription_created`, `subscription_updated`, or `subscription_reminder`.  | Required
 |  reason  | String |  Reason for the event. Possible values are `canceled`, `manual_renewal_confirmed`, `manual_renewal_required`, `renewal_type_changed`,  `renewed`, or `upgraded`.  | Required 
 
 ### Customer 
 
 | Data  | Type | Description | Required? |  
-| ---------- | ---- |------------ |
+| ---------- | ---- |------------ |------------ |
 | ``customer_id``  | String | Unique identifier of the customer.  | Required
 | ``client_customer_id``  | String | Your internal identifier of the customer.  | Optional
 | ``default_contact``  | Container |  See Default Contact below. | Required
