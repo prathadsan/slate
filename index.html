@@ -13,7 +13,7 @@
 
       <script>
         $(function() {
-          setupLanguages(["shell","ruby","python"]);
+          setupLanguages(["json","curl"]);
         });
       </script>
   </head>
@@ -28,9 +28,8 @@
     <div class="tocify-wrapper">
       <img src="images/logo.png" />
         <div class="lang-selector">
-              <a href="#" data-language-name="shell">shell</a>
-              <a href="#" data-language-name="ruby">ruby</a>
-              <a href="#" data-language-name="python">python</a>
+              <a href="#" data-language-name="json">json</a>
+              <a href="#" data-language-name="curl">curl</a>
         </div>
         <div class="search">
           <input type="text" class="search" id="input-search" placeholder="Search">
@@ -38,154 +37,229 @@
         <ul class="search-results"></ul>
       <div id="toc">
       </div>
-        <ul class="toc-footer">
-            <li><a href='#'>Sign Up for a Developer Key</a></li>
-            <li><a href='http://github.com/tripit/slate'>Documentation Powered by Slate</a></li>
-        </ul>
     </div>
     <div class="page-wrapper">
       <div class="dark-box"></div>
       <div class="content">
-        <h1 id='introduction'>Introduction</h1>
-<p>Welcome to the Kittn API! You can use our API to access Kittn API endpoints, which can get information on various cats, kittens, and breeds in our database.</p>
+        <h1 id='subscription-notification'>Subscription Notification</h1>
+<p>The Subscription notification is used to notify you of events relevant to a subscription. The notification includes the following information:</p>
 
-<p>We have language bindings in Shell, Ruby, and Python! You can view code examples in the dark area to the right, and you can switch the programming language of the examples with the tabs in the top right.</p>
+<ul>
+<li>Customer details, including contact data</li>
+<li>Subscription details, including subscription, plan, and payment data</li>
+</ul>
+<h2 id='event-types'>Event Types</h2>
+<p>There are three main event types that trigger a Subscription notification:</p>
 
-<p>This example API documentation page was created with <a href="http://github.com/tripit/slate">Slate</a>. Feel free to edit it and use it as a base for your own API&rsquo;s documentation.</p>
-<h1 id='authentication'>Authentication</h1>
-<blockquote>
-<p>To authorize, use this code:</p>
-</blockquote>
-<pre class="highlight ruby"><span class="nb">require</span> <span class="s1">'kittn'</span>
-
-<span class="n">api</span> <span class="o">=</span> <span class="no">Kittn</span><span class="o">::</span><span class="no">APIClient</span><span class="p">.</span><span class="nf">authorize!</span><span class="p">(</span><span class="s1">'meowmeowmeow'</span><span class="p">)</span>
-</pre>
-<pre class="highlight python"><span class="kn">import</span> <span class="s">'kittn'</span>
-
-<span class="n">api</span> <span class="o">=</span> <span class="n">Kittn</span><span class="o">.</span><span class="n">authorize</span><span class="p">(</span><span class="s">'meowmeowmeow'</span><span class="p">)</span>
-</pre>
-<pre class="highlight shell"><span class="c"># With shell, you can just pass the correct header with each request</span>
-curl <span class="s2">"api_endpoint_here"</span>
-  -H <span class="s2">"Authorization: meowmeowmeow"</span>
-</pre>
-
-<blockquote>
-<p>Make sure to replace <code class="prettyprint">meowmeowmeow</code> with your API key.</p>
-</blockquote>
-
-<p>Kittn uses API keys to allow access to the API. You can register a new Kittn API key at our <a href="http://example.com/developers">developer portal</a>.</p>
-
-<p>Kittn expects for the API key to be included in all API requests to the server in a header that looks like the following:</p>
-
-<p><code class="prettyprint">Authorization: meowmeowmeow</code></p>
-
-<p><aside class="notice">
-You must replace <code class="prettyprint">meowmeowmeow</code> with your personal API key.
-</aside></p>
-<h1 id='kittens'>Kittens</h1><h2 id='get-all-kittens'>Get All Kittens</h1><pre class="highlight ruby"><span class="nb">require</span> <span class="s1">'kittn'</span>
-
-<span class="n">api</span> <span class="o">=</span> <span class="no">Kittn</span><span class="o">::</span><span class="no">APIClient</span><span class="p">.</span><span class="nf">authorize!</span><span class="p">(</span><span class="s1">'meowmeowmeow'</span><span class="p">)</span>
-<span class="n">api</span><span class="p">.</span><span class="nf">kittens</span><span class="p">.</span><span class="nf">get</span>
-</pre>
-<pre class="highlight python"><span class="kn">import</span> <span class="s">'kittn'</span>
-
-<span class="n">api</span> <span class="o">=</span> <span class="n">Kittn</span><span class="o">.</span><span class="n">authorize</span><span class="p">(</span><span class="s">'meowmeowmeow'</span><span class="p">)</span>
-<span class="n">api</span><span class="o">.</span><span class="n">kittens</span><span class="o">.</span><span class="n">get</span><span class="p">()</span>
-</pre>
-<pre class="highlight shell">curl <span class="s2">"http://example.com/api/kittens"</span>
-  -H <span class="s2">"Authorization: meowmeowmeow"</span>
-</pre>
-
-<blockquote>
-<p>The above command returns JSON structured like this:</p>
-</blockquote>
-<pre class="highlight json"><span class="p">[</span><span class="w">
-  </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Fluffums"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"breed"</span><span class="p">:</span><span class="w"> </span><span class="s2">"calico"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"fluffiness"</span><span class="p">:</span><span class="w"> </span><span class="mi">6</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"cuteness"</span><span class="p">:</span><span class="w"> </span><span class="mi">7</span><span class="w">
-  </span><span class="p">},</span><span class="w">
-  </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Isis"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"breed"</span><span class="p">:</span><span class="w"> </span><span class="s2">"unknown"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"fluffiness"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"cuteness"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="w">
-  </span><span class="p">}</span><span class="w">
-</span><span class="p">]</span><span class="w">
-</span></pre>
-
-<p>This endpoint retrieves all kittens.</p>
-<h3 id='http-request'>HTTP Request</h1>
-<p><code class="prettyprint">GET http://example.com/kittens</code></p>
-<h3 id='query-parameters'>Query Parameters</h1>
 <table><thead>
 <tr>
-<th>Parameter</th>
-<th>Default</th>
+<th>Event Type</th>
 <th>Description</th>
 </tr>
 </thead><tbody>
 <tr>
-<td>include_cats</td>
-<td>false</td>
-<td>If set to true, the result will also include cats.</td>
+<td>Subscription Created</td>
+<td>Notifies you when a customer has subscribed to a plan and successfully paid for it. You can use the notification to know when to provide the customer with access to the subscribed-to plan.</td>
 </tr>
 <tr>
-<td>available</td>
-<td>true</td>
-<td>If set to false, the result will include kittens that have already been adopted.</td>
+<td>Subscription Updated</td>
+<td>Notifies you when an existing subscription has been updated and gives a reason for the update. You can use the notification to stay informed about changes to the subscription.</td>
+</tr>
+<tr>
+<td>Subscription Reminder</td>
+<td>Notifies you about upcoming subscription events, such as a manual renewal. You can use the notification to know when an action needs to be taken for the subscription.</td>
 </tr>
 </tbody></table>
+<h2 id='how-it-works'>How it Works</h2>
+<p>The following describes the notification process:</p>
 
-<p><aside class="success">
-Remember — a happy kitten is an authenticated kitten!
-</aside></p>
-<h2 id='get-a-specific-kitten'>Get a Specific Kitten</h1><pre class="highlight ruby"><span class="nb">require</span> <span class="s1">'kittn'</span>
+<ol>
+<li> An event happens, such as a customer signing up and paying for a subscription for one of your plans.</li>
+<li> The details of the event are saved in the cleverbridge database.</li>
+<li> cleverbridge sends you the notification in JSON format as an HTTP PUT request.</li>
+<li> If the call was successful, an HTTP 2XX response code is returned to cleverbridge.</li>
+<li> If the call failed, an HTTP 5XX response code is returned to cleverbridge. cleverbridge sends follow-up calls until the call is successful.</li>
+</ol>
+<h2 id='notification-description'>Notification Description</h2>
+<p>The notification contains the following information.</p>
+<h3 id='notification'>Notification</h3>
+<p>| Data  | Type  |  Description  | Required?  |<br>
+| &mdash;&mdash;&mdash;&mdash; |&mdash;&mdash;&mdash;&mdash;&mdash; | 
+|  <code class="prettyprint">notification_id</code>     | String |  Unique identifier of the notification. | Required
+|  <code class="prettyprint">event</code>   | Container |  See Event below. | Required 
+|  <code class="prettyprint">customer</code>      | Container | See Customer below. |  Required
+|  <code class="prettyprint">subscription</code>    | Container | See Subscription below. | Required</p>
+<h3 id='event'>Event</h3>
+<p>| Data  | Type  |  Description  | Required?  |<br>
+| &mdash;&mdash;&mdash;&mdash; |&mdash;&mdash;&mdash;&mdash;&mdash; | 
+|  <code class="prettyprint">type</code>     | String | Type of event. Possible values are <code class="prettyprint">subscription_created</code>, <code class="prettyprint">subscription_updated</code>, or <code class="prettyprint">subscription_reminder</code>.  | Required
+|  <code class="prettyprint">reason</code>   | String |  Reason for the event. Possible values are <code class="prettyprint">canceled</code>, <code class="prettyprint">manual_renewal_confirmed</code>, <code class="prettyprint">manual_renewal_required</code>, <code class="prettyprint">renewal_type_changed</code>,  <code class="prettyprint">renewed</code>, or <code class="prettyprint">upgraded</code>.  | Required </p>
+<h3 id='customer'>Customer</h3>
+<p>| Data  | Type | Description | Required? |<br>
+| &mdash;&mdash;&mdash;- | &mdash;- |&mdash;&mdash;&mdash;&mdash; |
+| <code class="prettyprint">customer_id</code>  | String | Unique identifier of the customer.  | Required
+| <code class="prettyprint">client_customer_id</code>  | String | Your internal identifier of the customer.  | Optional
+| <code class="prettyprint">default_contact</code>  | Container |  See Default Contact below. | Required</p>
+<h4 id='default-contact'>Default Contact</h4>
+<p>| Data  | Type | Description | Required? |<br>
+| &mdash;&mdash;&mdash;- | &mdash;- |&mdash;&mdash;&mdash;&mdash; |
+| <code class="prettyprint">locale</code>  | String | Two letter ISO 639-1 code for the customer language. Format: <code class="prettyprint">iso6391</code>  | Required
+| <code class="prettyprint">title</code>  | String | Title of the customer.  | Optional
+| <code class="prettyprint">first_name</code>  | String |  First name of the customer. | Optional
+| <code class="prettyprint">last_name</code>  | String | Last name of the customer.  | Required
+| <code class="prettyprint">gender</code>  | String | Gender of the customer. Possible values are <code class="prettyprint">female</code> or <code class="prettyprint">male</code>.  | Optional
+| <code class="prettyprint">company</code>  | String | Company of the customer.  | Optional
+| <code class="prettyprint">street</code>  | String |  Street address of the customer. | Optional
+| <code class="prettyprint">zip_code</code>  | String | Zip code of the customer.  | Optional
+| <code class="prettyprint">city</code>  | String | City of the customer.  | Optional
+| <code class="prettyprint">state_iso_code</code>  | String | ISO 3166-2 code for the state of the customer. Format: <code class="prettyprint">iso31662</code>  | Optional
+| <code class="prettyprint">country_iso_code</code>  | String | ISO 3166-2 code for the country of the customer. Format: <code class="prettyprint">iso31662</code>   | Required
+| <code class="prettyprint">phone</code>  | String | Phone number of the customer.  | Optional
+| <code class="prettyprint">mobile</code>  | String | Mobile number of the customer.  | Optional
+| <code class="prettyprint">fax</code>  | String | Fax number of the customer.  | Optional
+| <code class="prettyprint">email</code>  | String | Email address of the customer.  | Required
+| <code class="prettyprint">vat_id</code>  | String | VAT ID of the customer.  | Optional</p>
+<h3 id='subscription'>Subscription</h3>
+<p>| Data  | Type | Description | Required? |<br>
+| &mdash;&mdash;&mdash;- | &mdash;- |&mdash;&mdash;&mdash;&mdash; |
+| <code class="prettyprint">subscription_id</code>  | String | Unique identifier of the subscription.  | Required
+| <code class="prettyprint">client_subscription_id</code>  | String | Your internal identifier of the subscription. | Optional
+| <code class="prettyprint">renewal_type</code>  | String | If <code class="prettyprint">auto</code>, subscription renews automatically. If <code class="prettyprint">manual</code>, the customer must initiate the renewal. If <code class="prettyprint">cancel</code>, the subscription will not continue after the renewal date.  | Required
+| <code class="prettyprint">status</code>  | String | Status of the subscription. Possible values are: <code class="prettyprint">active</code>, <code class="prettyprint">canceled</code>, <code class="prettyprint">expired</code>, <code class="prettyprint">suspended</code>, or <code class="prettyprint">deleted</code>.  | Required
+| <code class="prettyprint">started_at</code>  | Date-Time |  ISO 8601 code for the date and time the subscription became effective. Format: <code class="prettyprint">iso8601</code> | Required
+| <code class="prettyprint">next_billing_at</code>  | Date-Time |  ISO 8601 code for the date and time of the next billing event. Format: <code class="prettyprint">iso8601</code> | Optional
+| <code class="prettyprint">next_renewal_at</code>  | Date-Time |  ISO 8601 code for the date and time of the next renewal of the subscription contract. Format: <code class="prettyprint">iso8601</code> | Optional
+| <code class="prettyprint">canceled_at</code>  | Date-Time |  ISO 8601 code for the date and time the subscription was canceled. Format: <code class="prettyprint">iso8601</code> | Optional
+| <code class="prettyprint">ended_at</code>  | Date-Time |  ISO 8601 code for the date and time the subscription ended, if the subscription was set up as a term subscription. Format: <code class="prettyprint">iso8601</code> | Optional
+| <code class="prettyprint">currency_iso_code</code>  | String | Alpha 2 ISO 4217 code for the currency of the subscription. Format: <code class="prettyprint">iso4217</code> | Required
+| <code class="prettyprint">plans</code>  | Container | Includes one or more plans. See Plan below.  | Required
+| <code class="prettyprint">payments</code>  | Container | Includes one or more payment logs. See Payment below. | Required</p>
+<h4 id='plan'>Plan</h4>
+<p>| Data  | Type | Description | Required? |
+| &mdash;&mdash;&mdash;- | &mdash;- |&mdash;&mdash;&mdash;&mdash; |
+| <code class="prettyprint">plan_id</code>  | String | Unique identifier of the plan.  | Required
+| <code class="prettyprint">client_plan_id</code>  | String | Your internal identifier of the plan.  | Optional
+| <code class="prettyprint">plan_version</code>  | Integer | Version number of the plan.  | Required
+| <code class="prettyprint">name</code>  | String | Name of the plan.  | Optional
+| <code class="prettyprint">billing_cycle_frequency</code>  | String | Period of time between recurring billing events, such as daily, monthly, quarterly, or annually. Example: <code class="prettyprint">3m4d</code>.  | Optional
+| <code class="prettyprint">charges</code>  | Container | Includes one or more charges. See Charge below.  | Optional
+| <code class="prettyprint">quantity</code>  | String | Number of times this plan is in the subscription.  | Required
+| <code class="prettyprint">coupon_code</code>  | String | Identifier of a coupon associated with a promotional discount offer. | Optional
+| <code class="prettyprint">custom_data</code>  | String | A set of key/value pairs that you can use for storing additional information about the subscription in a structured format.  | Optional</p>
+<h5 id='charge'>Charge</h5>
+<p>| Data  | Type | Description | Required? |
+| &mdash;&mdash;&mdash;- | &mdash;- |&mdash;&mdash;&mdash;&mdash; |
+| <code class="prettyprint">name</code>  | String | Name of the charge.  | Optional
+| <code class="prettyprint">price</code>  | Number | Price of the charge.  | Optional</p>
+<h4 id='payment'>Payment</h4>
+<p>| Data  | Type | Description | Required? |
+| &mdash;&mdash;&mdash;- | &mdash;- |&mdash;&mdash;&mdash;&mdash; |
+| <code class="prettyprint">created_at</code>  | Date-Time |  ISO 8601 code for the date and time when payment was received. Format: <code class="prettyprint">iso8601</code> | Required
+| <code class="prettyprint">payment_provider_transaction_id</code>  | String | Unique identifier of the payment transaction from the payment provider.  | Optional
+| <code class="prettyprint">payment_method</code>  | String | How the customer paid, such as by wire transfer, PayPal, MasterCard, etc. | Required
+| <code class="prettyprint">card_last_four_digits</code>  | String | Last four digits of the credit card. | Optional
+| <code class="prettyprint">card_expiration_date</code>  | String | Expiration date of the credit card. | Optional
+| <code class="prettyprint">currency_iso_code</code>  | String | Alpha 2 ISO 4217 code for the currency of the payment. Format: <code class="prettyprint">iso4217</code>  | Required
+| <code class="prettyprint">net</code>  | Number | Net amount of the payment.  | Required
+| <code class="prettyprint">tax</code>  | Number | Amount of any applicable taxes.  | Required
+| <code class="prettyprint">gross</code>  | Number | Gross amount of the payment.  | Required</p>
+<pre><code class="highlight json"><span class="w">
+     </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"notification_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1251A1"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"event"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"subscription_created"</span><span class="p">,</span><span class="w">
+        </span><span class="err">}</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"customer"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+             </span><span class="s2">"customer_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1251A1"</span><span class="p">,</span><span class="w">
+             </span><span class="s2">"client_customer_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ABC123"</span><span class="p">,</span><span class="w">
+             </span><span class="s2">"default_contact"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                 </span><span class="s2">"locale"</span><span class="p">:</span><span class="w"> </span><span class="s2">"de-DE"</span><span class="p">,</span><span class="w">
+                 </span><span class="s2">"first_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Max"</span><span class="p">,</span><span class="w">
+                 </span><span class="s2">"last_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Samplemann"</span><span class="p">,</span><span class="w">
+                 </span><span class="s2">"street"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Anystreet 123"</span><span class="p">,</span><span class="w">
+                 </span><span class="s2">"zip_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12345"</span><span class="p">,</span><span class="w">
+                 </span><span class="s2">"city"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Anycity"</span><span class="p">,</span><span class="w">
+                 </span><span class="s2">"country_iso_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"DE"</span><span class="p">,</span><span class="w">
+                 </span><span class="s2">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"example@examplecompany.com"</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+         </span><span class="p">},</span><span class="w">
+         </span><span class="s2">"subscription"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+             </span><span class="s2">"subscription_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1251A1"</span><span class="p">,</span><span class="w">
+             </span><span class="s2">"renewal_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"manual"</span><span class="p">,</span><span class="w">
+             </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"active"</span><span class="p">,</span><span class="w">
+             </span><span class="s2">"started_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2014-09-02T14:44:43.314789Z"</span><span class="p">,</span><span class="w">
+             </span><span class="s2">"next_billing_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-09-02T14:44:43.610217Z"</span><span class="p">,</span><span class="w">
+             </span><span class="s2">"next_renewal_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-09-02T14:44:43.610217Z"</span><span class="p">,</span><span class="w">
+             </span><span class="s2">"currency_iso_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"EUR"</span><span class="p">,</span><span class="w">
+             </span><span class="s2">"plans"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+                 </span><span class="p">{</span><span class="w">
+                     </span><span class="s2">"plan_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1251A1"</span><span class="p">,</span><span class="w">
+                     </span><span class="s2">"plan_version"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+                     </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Keepster Professional"</span><span class="p">,</span><span class="w">
+                     </span><span class="s2">"billing_cycle_frequency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1y"</span><span class="p">,</span><span class="w">
+                     </span><span class="s2">"charges"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+                         </span><span class="p">{</span><span class="w">
+                             </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Yearly"</span><span class="p">,</span><span class="w">
+                             </span><span class="s2">"price"</span><span class="p">:</span><span class="w"> </span><span class="mi">199</span><span class="w">
+                         </span><span class="p">}</span><span class="w">
+                     </span><span class="p">],</span><span class="w">
+                     </span><span class="s2">"quantity"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+                     </span><span class="s2">"custom_data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                         </span><span class="s2">"license_key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"123456ABC"</span><span class="w">
+                     </span><span class="p">}</span><span class="w">
+                 </span><span class="p">}</span><span class="w">
+             </span><span class="p">],</span><span class="w">
+         </span><span class="s2">"payment_log"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+             </span><span class="p">{</span><span class="w">
+                 </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2014-09-02T14:44:43.314789Z"</span><span class="p">,</span><span class="w">
+                 </span><span class="s2">"payment_provider_transaction_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"123456789"</span><span class="p">,</span><span class="w">
+                 </span><span class="s2">"payment_method"</span><span class="p">:</span><span class="w"> </span><span class="s2">"mastercard"</span><span class="p">,</span><span class="w">
+                 </span><span class="s2">"card_last_four_digits"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1234"</span><span class="p">,</span><span class="w">
+                 </span><span class="s2">"card_expiration_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1/2016"</span><span class="p">,</span><span class="w">
+                 </span><span class="s2">"currency_iso_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"EUR"</span><span class="p">,</span><span class="w">
+                 </span><span class="s2">"net"</span><span class="p">:</span><span class="w"> </span><span class="mf">167.23</span><span class="p">,</span><span class="w">
+                 </span><span class="s2">"tax"</span><span class="p">:</span><span class="w"> </span><span class="mf">31.77</span><span class="p">,</span><span class="w">
+                 </span><span class="s2">"gross"</span><span class="p">:</span><span class="w"> </span><span class="mi">199</span><span class="w">
+             </span><span class="p">}</span><span class="w">
+         </span><span class="p">]</span><span class="w">
+     </span><span class="p">}</span><span class="w">
 
-<span class="n">api</span> <span class="o">=</span> <span class="no">Kittn</span><span class="o">::</span><span class="no">APIClient</span><span class="p">.</span><span class="nf">authorize!</span><span class="p">(</span><span class="s1">'meowmeowmeow'</span><span class="p">)</span>
-<span class="n">api</span><span class="p">.</span><span class="nf">kittens</span><span class="p">.</span><span class="nf">get</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
-</pre>
-<pre class="highlight python"><span class="kn">import</span> <span class="s">'kittn'</span>
+</span></code></pre>
+<h1 id='upgrade-a-subscription'>Upgrade a Subscription</h1>
+<p>A subscription upgrade happens when a customer chooses to replace an existing plan with a better plan. The access to the new plan is available to the customer immediately. The rebilling for the new plan, however, takes place at the next billing event.</p>
+<h2 id='request'>Request</h2>
+<p>PUT https://api-subscription.cleverbridge.com/v1/subscriptions/{subscription_id}</p>
 
-<span class="n">api</span> <span class="o">=</span> <span class="n">Kittn</span><span class="o">.</span><span class="n">authorize</span><span class="p">(</span><span class="s">'meowmeowmeow'</span><span class="p">)</span>
-<span class="n">api</span><span class="o">.</span><span class="n">kittens</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
-</pre>
-<pre class="highlight shell">curl <span class="s2">"http://example.com/api/kittens/3"</span>
-  -H <span class="s2">"Authorization: meowmeowmeow"</span>
-</pre>
+<p>The following parameters are required:</p>
 
-<blockquote>
-<p>The above command returns JSON structured like this:</p>
-</blockquote>
-<pre class="highlight json"><span class="p">{</span><span class="w">
-  </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Isis"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"breed"</span><span class="p">:</span><span class="w"> </span><span class="s2">"unknown"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"fluffiness"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"cuteness"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></pre>
-
-<p>This endpoint retrieves a specific kitten.</p>
-
-<p><aside class="warning">If you&rsquo;re not using an administrator API key, note that some kittens will return 403 Forbidden if they are hidden for admins only.</aside></p>
-<h3 id='http-request'>HTTP Request</h1>
-<p><code class="prettyprint">GET http://example.com/kittens/&lt;ID&gt;</code></p>
-<h3 id='url-parameters'>URL Parameters</h1>
 <table><thead>
 <tr>
 <th>Parameter</th>
+<th>Type</th>
 <th>Description</th>
 </tr>
 </thead><tbody>
 <tr>
-<td>ID</td>
-<td>The ID of the cat to retrieve</td>
+<td><code class="prettyprint">action</code></td>
+<td>String</td>
+<td>The <code class="prettyprint">upgrade</code> value replaces the initial plan with the new plan.</td>
+</tr>
+<tr>
+<td><code class="prettyprint">plan_id</code></td>
+<td>String</td>
+<td>Unique identifier of the plan.</td>
 </tr>
 </tbody></table>
+<pre><code class="highlight plaintext">     curl PUT https://api-subscription.cleverbridge.com/v1/subscriptions/1251A1 \
+      -H "Authorization: Bearer [token]" \
+      -H "Accept: application/json" \
+      -d '{ "action": "upgrade" }'
+      -d '{ "plan_id": "1251A1" }'
+</code></pre>
+
+<blockquote>
+<p>Response: If the upgrade was successful, a 200 response is returned. A Subscription notification is sent with an event type of <code class="prettyprint">subscription_updated</code> and the reason for the update as <code class="prettyprint">upgraded</code>. </p>
+</blockquote>
 
           <h1 id='errors'>Errors</h1>
 <p><aside class="notice">This error section is stored in a separate file in <code class="prettyprint">includes/_errors.md</code>. Slate allows you to optionally separate out your docs into many files&hellip;just save them to the <code class="prettyprint">includes</code> folder and add them to the top of your <code class="prettyprint">index.md</code>&rsquo;s frontmatter. Files are included in the order listed.</aside></p>
@@ -247,9 +321,8 @@ Remember — a happy kitten is an authenticated kitten!
       </div>
       <div class="dark-box">
           <div class="lang-selector">
-                <a href="#" data-language-name="shell">shell</a>
-                <a href="#" data-language-name="ruby">ruby</a>
-                <a href="#" data-language-name="python">python</a>
+                <a href="#" data-language-name="json">json</a>
+                <a href="#" data-language-name="curl">curl</a>
           </div>
       </div>
     </div>
