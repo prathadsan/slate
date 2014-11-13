@@ -11,7 +11,7 @@ includes:
 search: true
 ---
 
-# Subscription Notification
+# Subscription Notifications
 
 The Subscription notification is used to notify you of events relevant to a subscription. The notification includes the following information:
 
